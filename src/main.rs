@@ -1,11 +1,14 @@
 
+
 use std::io::{Read, Write};
 use std::net::{TcpStream, ToSocketAddrs};
+
 
 // Ethereum protocol magic bytes
 const SUBSTRATE_MAGIC: [u8; 4] = [0x22, 0x80, 0x9D, 0xF2];
 // Ethereum protocol version
 const SUBSTRATE_VERSION: u32 = 5;
+
 
 //handshake function 
 fn perform_substrate_handshake<A: ToSocketAddrs>(addr: A) -> Result<(), Box<dyn std::error::Error>> {
@@ -40,6 +43,7 @@ fn perform_substrate_handshake<A: ToSocketAddrs>(addr: A) -> Result<(), Box<dyn 
 }
 
 
+
 //main function
 fn main() {
    //here handshake function will be called
@@ -47,3 +51,4 @@ fn main() {
         eprintln!("Error: {}", err);
     }
 }
+
